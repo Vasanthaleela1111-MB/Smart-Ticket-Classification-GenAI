@@ -25,6 +25,7 @@ This project aims to:
   * Logistic Regression
   * Naive Bayes
   * Support Vector Machine (SVM)
+  * Random Forest Classifier
 * 🧠 Deep Learning model (LSTM)
 * 🤖 Generative AI integration (Gemini API)
 * 📈 Model evaluation (Accuracy, Precision, Recall, F1-score)
