@@ -129,7 +129,6 @@ After classification:
 ```bash
 git clone https://github.com/your-username/AI-Customer-Support-Automation.git
 cd AI-Customer-Support-Automation
-pip install -r requirements.txt
 ```
 
 ---
