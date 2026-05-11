@@ -30,17 +30,17 @@ def generate_reply(ticket, department):
 def download_model():
     file_id = "1BJRvJlehCErRzS-nZvA814UaIxeyW9bl"
 
-    if not os.path.exists("model1.pkl"):
-        gdown.download(
-            id=file_id,
-            output="model1.pkl",
-            quiet=False
-        )
+    # Remove old corrupted file
+    if os.path.exists("model1.pkl"):
+        os.remove("model1.pkl")
+
+    gdown.download(
+        id=file_id,
+        output="model1.pkl",
+        quiet=False
+    )
 
 download_model()
-
-with open("model1.pkl", "rb") as file:
-    model, vectorizer = pickle.load(file)
 
 API_KEY = st.secrets["GEMINI_API_KEY"]
 genai.configure(api_key=API_KEY)
