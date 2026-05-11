@@ -5,7 +5,7 @@ import os
 import pickle
 import google.generativeai as genai
 from sklearn.feature_extraction.text import TfidfVectorizer
-
+import gdown
 
 def generate_reply(ticket, department):
     model_gemini = genai.GenerativeModel("gemini-flash-latest")
@@ -25,13 +25,21 @@ def generate_reply(ticket, department):
         return response.text
     except Exception:
         return "⚠️ Unable to generate response. Please try again."
-    
+        
+# Google Drive file ID
+file_id = "1BJRvJlehCErRzS-nZvA814UaIxeyW9bl"
+
+# Download URL
+url = f"https://drive.google.com/uc?id={file_id}"
+
+# Download only if file not exists
+if not os.path.exists("model1.pkl"):
+    gdown.download(url, "model1.pkl", quiet=False)    
 
 with open("model1.pkl","rb") as file:
     model, vectorizer=pickle.load(file)
 
-with open(r"C:\Users\hp\Downloads\Chatgpt api key.txt","r") as f:
-    API_KEY=' '.join(f.readlines())
+API_KEY = st.secrets["GEMINI_API_KEY"]
 genai.configure(api_key=API_KEY)
 
 
@@ -92,8 +100,6 @@ more efficient and intelligent.
 elif page == 'Chatbot':
 
     st.title("🤖 AI Customer Support Automation")
-
-    st.title("👩‍💻 Creator of this Project")
 
     input=st.text_area("Enter your text here")
 
