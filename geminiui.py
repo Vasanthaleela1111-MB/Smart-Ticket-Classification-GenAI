@@ -37,10 +37,10 @@ def download_model():
             quiet=False
         )
 
-download_model()  
+download_model()
 
-with open("model1.pkl", "wb") as file:
-    pickle.dump((model, vectorizer), file)
+with open("model1.pkl", "rb") as file:
+    model, vectorizer = pickle.load(file)
 
 API_KEY = st.secrets["GEMINI_API_KEY"]
 genai.configure(api_key=API_KEY)
