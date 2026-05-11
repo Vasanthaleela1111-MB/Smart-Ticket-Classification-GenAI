@@ -26,15 +26,18 @@ def generate_reply(ticket, department):
     except Exception:
         return "⚠️ Unable to generate response. Please try again."
         
-# Google Drive file ID
-file_id = "1BJRvJlehCErRzS-nZvA814UaIxeyW9bl"
+@st.cache_data
+def download_model():
+    file_id = "1BJRvJlehCErRzS-nZvA814UaIxeyW9bl"
 
-# Download URL
-url = f"https://drive.google.com/uc?id={file_id}"
+    if not os.path.exists("model1.pkl"):
+        gdown.download(
+            id=file_id,
+            output="model1.pkl",
+            quiet=False
+        )
 
-# Download only if file not exists
-if not os.path.exists("model1.pkl"):
-    gdown.download(url, "model1.pkl", quiet=False)    
+download_model()  
 
 with open("model1.pkl","rb") as file:
     model, vectorizer=pickle.load(file)
