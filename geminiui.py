@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import os
-import pickle
+import joblib
 import google.generativeai as genai
 from sklearn.feature_extraction.text import TfidfVectorizer
 import gdown
@@ -42,8 +42,7 @@ def download_model():
 
 download_model()
 
-with open("model1.pkl", "rb") as file:
-    model, vectorizer = pickle.load(file)
+model, vectorizer = joblib.load("model1.pkl")
 
 API_KEY = st.secrets["GEMINI_API_KEY"]
 genai.configure(api_key=API_KEY)
