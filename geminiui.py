@@ -39,8 +39,6 @@ def load_model():
             quiet=False
         )
 
-    model, vectorizer = joblib.load("model1.pkl")
-
     return model, vectorizer
 
 
@@ -107,6 +105,11 @@ more efficient and intelligent.
 elif page == 'Chatbot':
 
     st.title("🤖 AI Customer Support Automation")
+    @st.cache_resource
+    def load_model():
+        return joblib.load("model1.pkl")
+
+    model, vectorizer = load_model()
 
     input=st.text_area("Enter your text here")
 
