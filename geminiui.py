@@ -43,7 +43,7 @@ def download_model():
 
     return model, vectorizer
 
-model, vectorizer = download_model()
+download_model()
 
 API_KEY = st.secrets["GEMINI_API_KEY"]
 genai.configure(api_key=API_KEY)
