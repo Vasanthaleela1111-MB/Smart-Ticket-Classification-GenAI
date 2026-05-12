@@ -32,6 +32,7 @@ def load_model():
     file_id = "1ZuhG7PZ7ie_m39tc1Z0OD78PNyQyJOjv"
 
     if not os.path.exists("model1.pkl"):
+
         gdown.download(
             id=file_id,
             output="model1.pkl",
@@ -41,6 +42,7 @@ def load_model():
     model, vectorizer = joblib.load("model1.pkl")
 
     return model, vectorizer
+
 
 model, vectorizer = load_model()
 
