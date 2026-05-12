@@ -41,6 +41,8 @@ def download_model():
 
 download_model()
 
+model, vectorizer = joblib.load("model1.pkl")
+
 API_KEY = st.secrets["GEMINI_API_KEY"]
 genai.configure(api_key=API_KEY)
 
