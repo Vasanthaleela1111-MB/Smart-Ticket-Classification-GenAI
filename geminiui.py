@@ -39,10 +39,9 @@ def download_model():
             quiet=False
         )
 
-model, vectorizer = joblib.load("model1.pkl")
+    model, vectorizer = joblib.load("model1.pkl")
 
     return model, vectorizer
-
 
 model, vectorizer = download_model()
 
