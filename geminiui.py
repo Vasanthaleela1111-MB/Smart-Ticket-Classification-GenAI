@@ -104,8 +104,6 @@ more efficient and intelligent.
 elif page == 'Chatbot':
 
     st.title("🤖 AI Customer Support Automation")
-    model, vectorizer = load_model()
-    
     input=st.text_area("Enter your text here")
 
     if st.button("Submit"):
@@ -113,6 +111,9 @@ elif page == 'Chatbot':
          if input.strip() == "":
             st.warning("Please enter a reply")
          else:
+             with st.spinner("Loading model..."):
+
+                model, vectorizer = load_model()
             
             vector_input = vectorizer.transform([input])
             prediction = model.predict(vector_input)[0]
