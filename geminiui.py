@@ -115,16 +115,16 @@ elif page == 'Chatbot':
 
                 model, vectorizer = load_model()
             
-            vector_input = vectorizer.transform([input])
-            prediction = model.predict(vector_input)[0]
+             vector_input = vectorizer.transform([input])
+             prediction = model.predict(vector_input)[0]
 
-            reply = generate_reply(input, prediction)
+             reply = generate_reply(input, prediction)
 
-            st.subheader("📌 Predicted Category")
-            st.success(prediction)
+             st.subheader("📌 Predicted Category")
+             st.success(prediction)
 
-            st.subheader("💬 AI Response")
-            st.write(reply)
+             st.subheader("💬 AI Response")
+             st.write(reply)
 
 elif page=='Creator Info':
     st.title("👩‍💻 Creator of this Project")
