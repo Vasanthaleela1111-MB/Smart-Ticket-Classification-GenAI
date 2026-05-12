@@ -30,15 +30,12 @@ def generate_reply(ticket, department):
 def download_model():
     file_id = "1BJRvJlehCErRzS-nZvA814UaIxeyW9bl"
 
-    # Remove old corrupted file
-    if os.path.exists("model1.pkl"):
-        os.remove("model1.pkl")
-
-    gdown.download(
-        id=file_id,
-        output="model1.pkl",
-        quiet=False
-    )
+    if not os.path.exists("model1.pkl"):
+        gdown.download(
+            id=file_id,
+            output="model1.pkl",
+            quiet=False
+        )
 
 download_model()
 
