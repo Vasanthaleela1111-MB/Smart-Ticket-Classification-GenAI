@@ -104,27 +104,31 @@ more efficient and intelligent.
 elif page == 'Chatbot':
 
     st.title("🤖 AI Customer Support Automation")
-    input=st.text_area("Enter your text here")
+
+    user_input = st.text_area("Enter your text here")
 
     if st.button("Submit"):
-        
-         if input.strip() == "":
+
+        if user_input.strip() == "":
             st.warning("Please enter a reply")
-         else:
-             with st.spinner("Loading model..."):
+
+        else:
+
+            with st.spinner("Loading model..."):
 
                 model, vectorizer = load_model()
-            
-             vector_input = vectorizer.transform([input])
-             prediction = model.predict(vector_input)[0]
 
-             reply = generate_reply(input, prediction)
+                vector_input = vectorizer.transform([user_input])
 
-             st.subheader("📌 Predicted Category")
-             st.success(prediction)
+                prediction = model.predict(vector_input)[0]
 
-             st.subheader("💬 AI Response")
-             st.write(reply)
+                reply = generate_reply(user_input, prediction)
+
+            st.subheader("📌 Predicted Category")
+            st.success(prediction)
+
+            st.subheader("💬 AI Response")
+            st.write(reply)
 
 elif page=='Creator Info':
     st.title("👩‍💻 Creator of this Project")
