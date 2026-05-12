@@ -27,7 +27,7 @@ def generate_reply(ticket, department):
         return "⚠️ Unable to generate response. Please try again."
         
 @st.cache_resource
-def load_model():
+def download_model():
 
     file_id = "1ZuhG7PZ7ie_m39tc1Z0OD78PNyQyJOjv"
 
@@ -39,12 +39,12 @@ def load_model():
             quiet=False
         )
 
-    model, vectorizer = joblib.load("model1.pkl")
+model, vectorizer = joblib.load("model1.pkl")
 
     return model, vectorizer
 
 
-model, vectorizer = load_model()
+model, vectorizer = download_model()
 
 API_KEY = st.secrets["GEMINI_API_KEY"]
 genai.configure(api_key=API_KEY)
