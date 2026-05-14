@@ -134,7 +134,7 @@ elif page=='Creator Info':
     st.title("👩‍💻 Creator of this Project")
 
     st.write("""
-**Developed by:** Vasantha Leela MB  
+**Developed by:** Vasantha Leela M  
 
 🎓 **Education:** B.E. Computer Science and Engineering  
 🏫 **Institution:** Karpagam Academy of Higher Education  
