@@ -159,7 +159,7 @@ streamlit run app.py
 
 ## 👩‍💻 Author
 
-**Vasantha Leela MB**
+**Vasantha Leela M**
 
 * LinkedIn: https://www.linkedin.com/in/vasantha-leela-mb-3b7009362
 * GitHub: https://github.com/Vasanthaleela1111-MB
