@@ -287,7 +287,7 @@ elif page == '🎫 Ticket Classification':
 
             st.write("")
 
-            st.toast("Analysis Completed Successfully ✅")
+            # st.toast("Analysis Completed Successfully ✅")
 
 elif page == '👩‍💻 Creator Info':
 
