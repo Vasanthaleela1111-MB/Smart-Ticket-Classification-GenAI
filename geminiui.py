@@ -247,12 +247,6 @@ elif page == '🎫 Ticket Classification':
         with col1:
             submit = st.button("Analyze")
 
-        with col2:
-            clear = st.button("Clear")
-
-    if clear:
-        st.rerun()
-
     if submit:
 
         if user_input.strip() == "":
