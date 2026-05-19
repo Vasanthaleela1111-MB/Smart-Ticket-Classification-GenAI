@@ -14,6 +14,21 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
+def is_greeting(text):
+
+    greetings = [
+        "hi",
+        "hello",
+        "hey",
+        "good morning",
+        "good afternoon",
+        "good evening",
+        "hii",
+        "helo"
+    ]
+
+    return text.lower().strip() in greetings
+    
 def generate_reply(ticket, department):
     model_gemini = genai.GenerativeModel("gemini-flash-latest")
 
@@ -255,7 +270,24 @@ elif page == '🎫 Ticket Classification':
 
         else:
 
-            with st.spinner("Analyzing customer ticket..."):
+         with st.spinner("Analyzing customer ticket..."):
+
+            # Greeting Detection
+            if is_greeting(user_input):
+
+                prediction = "Greeting"
+
+                reply = """
+Hello! 👋
+
+Welcome to the AI Support Assistant.
+
+How can I help you today?
+"""
+
+            else:
+
+             with st.spinner("Analyzing customer ticket..."):
 
                 vector_input = vectorizer.transform([user_input])
 
